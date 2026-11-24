@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SN Fragrances</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-3 -3 70 70'%3E%3Ccircle cx='32' cy='32' r='31' fill='%232A1D16'/%3E%3Ccircle cx='32' cy='32' r='26' fill='none' stroke='%23C9A24F' stroke-width='2'/%3E%3Ctext x='32.5' y='41' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-weight='700' font-size='26' fill='%23C9A24F'%3ESN%3C/text%3E%3C/svg%3E">
+<meta name="description" content="Long-lasting perfumes and attars for men and women. Order on WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Layout: a perfume store. White pages, espresso and gold accents,
+       bottles shown on soft stone backgrounds. Light theme only, by choice. */
+    --white: #FFFFFF;
+    --ink: #1C1714;
+    --muted: #6F6761;
+    --line: #E7E2DC;
+    --soft: #F5F2EE;
+    --gold: #A9823F;
+    --espresso: #2A1D16;
+    --sale: #B3261E;
+
+    --serif: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+    --sans: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
+    --gutter: clamp(16px, 3vw, 40px);
+    --max: 1320px;
+    color-scheme: light;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+  body {
+    margin: 0;
+    background: var(--white);
+    color: var(--ink);
+    font: 400 1rem/1.55 var(--sans);
+  }
+  body:has(dialog[open]) { overflow: hidden; }
+  a { color: inherit; }
+  button, input, select { font: inherit; color: inherit; }
+  :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+  .wrap { max-width: var(--max); margin: 0 auto; padding-inline: var(--gutter); }
+  section[id] { scroll-margin-top: 120px; }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 1.8rem;
+    border: 1px solid transparent;
+    border-radius: 0;
+    font: 500 0.8rem/1 var(--sans);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-dark { background: var(--ink); color: var(--white); }
+  .btn-dark:hover { background: var(--espresso); }
+  .btn-light { background: var(--white); color: var(--ink); }
+  .btn-light:hover { background: var(--soft); }
+  .btn-gold { background: var(--gold); color: var(--white); }
+  .btn-gold:hover { background: #94712F; }
+  .btn-outline { border-color: var(--ink); background: transparent; color: var(--ink); }
+  .btn-outline:hover { background: var(--ink); color: var(--white); }
+  .btn-block { width: 100%; }
+  .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+  .link-btn {
+    padding: 0;
+    border: 0;
+    background: none;
+    font-size: 0.88rem;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+  }
+  .icon-btn {
+    position: relative;
+    display: inline-grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+  .icon-btn svg { width: 22px; height: 22px; }
+  .icon { fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ---------- Announcement ---------- */
+  .announce {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 38px;
+    padding: 0 var(--gutter);
+    background: var(--espresso);
+    color: var(--white);
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-align: center;
+  }
+  .announce p { margin: 0; }
+  .announce .icon-btn { width: 28px; height: 28px; color: rgba(255, 255, 255, 0.7); }
+  .announce .icon-btn svg { width: 14px; height: 14px; }
+
+  /* ---------- Header ---------- */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+  }
+  .header-top {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    min-height: 68px;
+  }
+  .h-left, .h-right { display: flex; align-items: center; gap: 0.15rem; }
+  .h-right { justify-content: flex-end; }
+  .menu-btn { display: none; margin-left: -10px; }
+  .logo {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1;
+    text-decoration: none;
+  }
+  .emblem { display: block; width: 44px; height: 44px; color: var(--gold); }
+  .logo-mark {
+    font: italic 600 2rem/0.9 var(--serif);
+    letter-spacing: 0.02em;
+  }
+  .logo-word {
+    margin-top: 0.35rem;
+    font: 500 0.6rem/1 var(--sans);
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    padding-left: 0.42em;
+  }
+  .nav-row { border-top: 1px solid var(--line); }
+  .main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25rem 2rem;
+    padding-block: 0.6rem;
+  }
+  .main-nav a {
+    padding-block: 0.25rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+  .main-nav a:hover { border-bottom-color: var(--ink); }
+  .cart-count {
+    position: absolute;
+    top: 5px;
+    right: 3px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+    border-radius: 9px;
+    background: var(--gold);
+    color: var(--white);
+    font: 600 0.68rem/18px var(--sans);
+    text-align: center;
+  }
+  .cart-count[hidden] { display: none; }
+  @media (max-width: 900px) {
+    .nav-row { display: none; }
+    .menu-btn { display: inline-grid; }
+    .logo-mark { font-size: 1.7rem; }
+    .header .emblem { width: 38px; height: 38px; }
+  }
+
+  /* ---------- Banner slider ---------- */
+  .hero { position: relative; }
+  .slides {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .slides::-webkit-scrollbar { display: none; }
+  .slide {
+    flex: 0 0 100%;
+    min-width: 0;
+    scroll-snap-align: start;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    height: clamp(520px, 44vw, 600px);
+    background: var(--slide-bg);
+    color: var(--slide-fg);
+    overflow: hidden;
+  }
+  .slide-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1.1rem;
+    padding: 2rem var(--gutter) 3.5rem calc(var(--gutter) + max(0px, (100vw - var(--max)) / 2));
+  }
+  .slide-kicker {
+    margin: 0;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+  .slide h2 {
+    max-width: 12ch;
+    margin: 0;
+    font: 500 clamp(2.5rem, 5.6vw, 4.75rem)/1.02 var(--serif);
+    text-wrap: balance;
+  }
+  .slide-sub { max-width: 34ch; margin: 0 0 0.4rem; font-size: 1.05rem; opacity: 0.85; }
+  .slide-art { position: relative; min-height: 0; overflow: hidden; }
+  .art-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-arrow {
+    position: absolute;
+    bottom: 20px;
+    background: var(--white);
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+  }
+  .hero-prev { right: 68px; }
+  .hero-next { right: 16px; }
+  .dots {
+    position: absolute;
+    left: 50%;
+    bottom: 22px;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+  }
+  .dots button { width: 28px; height: 24px; padding: 0; border: 0; background: none; cursor: pointer; }
+  .dots button::before { content: ""; display: block; height: 2px; background: var(--dot, rgba(255, 255, 255, 0.45)); }
+  .dots button[aria-current="true"]::before { background: var(--dot-on, #FFFFFF); }
+  @media (max-width: 760px) {
+    .slide { grid-template-columns: 1fr; grid-template-rows: minmax(0, 1fr) auto; height: 640px; }
+    .slide-art { order: -1; }
+    .slide-text { padding: 0 var(--gutter) 4.5rem; gap: 0.8rem; }
+    .dots { left: var(--gutter); transform: none; }
+  }
+
+  /* ---------- Section headings ---------- */
+  .section { padding-block: clamp(2.75rem, 5vw, 4.25rem); }
+  .sec-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 0.75rem 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .sec-head h2 {
+    margin: 0;
+    font: 500 clamp(1.8rem, 3.2vw, 2.5rem)/1.1 var(--serif);
+    text-wrap: balance;
+  }
+  .sec-head p { margin: 0.4rem 0 0; color: var(--muted); }
+  .sec-head.center { flex-direction: column; align-items: center; text-align: center; }
+
+  /* Collection links */
+  .pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .pills a {
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 0.92rem;
+    text-decoration: none;
+  }
+  .pills a:hover { border-color: var(--ink); background: var(--ink); color: var(--white); }
+
+  /* Tabs */
+  .tabs { display: flex; gap: 1.5rem; }
+  .tab {
+    padding: 0.35rem 0;
+    border: 0;
+    border-bottom: 1px solid transparent;
+    background: none;
+    color: var(--muted);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--ink); }
+  .tab:hover { color: var(--ink); }
+  .row-controls { display: flex; align-items: center; gap: 1.5rem; }
+  .row-arrows { display: flex; gap: 6px; }
+  .row-arrows .icon-btn { border: 1px solid var(--line); border-radius: 50%; width: 40px; height: 40px; }
+  .row-arrows .icon-btn svg { width: 18px; height: 18px; }
+
+  /* ---------- Product cards ---------- */
+  .row {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% - 3 * 20px) / 4);
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+  .row::-webkit-scrollbar { display: none; }
+  .row > * { scroll-snap-align: start; }
+  @media (max-width: 1000px) { .row { grid-auto-columns: calc((100% - 2 * 16px) / 3); gap: 16px; } }
+  @media (max-width: 640px) { .row { grid-auto-columns: 46%; gap: 12px; } }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 12px;
+  }
+  @media (min-width: 760px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px 20px; } }
+  @media (min-width: 1080px) { .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+  .product { display: flex; flex-direction: column; gap: 0.75rem; min-width: 0; }
+  .p-media {
+    position: relative;
+    aspect-ratio: 1 / 1.1;
+    background: #ECE7E1;
+    overflow: hidden;
+  }
+  .p-open {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+  .p-open img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+  @media (hover: hover) { .product:hover .p-open img { transform: scale(1.04); } }
+  .badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 0.28rem 0.55rem;
+    background: var(--ink);
+    color: var(--white);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .badge-sale { background: var(--sale); }
+  .badge-gold { background: var(--gold); }
+  .p-info { display: flex; flex: 1; flex-direction: column; gap: 0.2rem; }
+  .p-info h3 { margin: 0; font: 500 1.15rem/1.25 var(--serif); }
+  .p-name { padding: 0; border: 0; background: none; text-align: left; cursor: pointer; }
+  .p-name:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .p-range {
+    margin: 0;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .p-notes { margin: 0.1rem 0 0; font-size: 0.85rem; line-height: 1.4; color: var(--muted); }
+  .p-price {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.4rem;
+    margin: 0.35rem 0 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  .p-price .from { font-weight: 400; color: var(--muted); font-size: 0.85rem; }
+  .p-price .sale { color: var(--sale); }
+  .p-price s { color: var(--muted); font-weight: 400; font-size: 0.85rem; }
+  .p-add { margin-top: auto; min-height: 42px; font-size: 0.72rem; }
+  .p-info .p-price + .p-add { margin-top: 0.75rem; }
+  img { max-width: 100%; }
+
+  /* Category tiles */
+  .tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  .tile {
+    position: relative;
+    display: grid;
+    place-items: center;
+    aspect-ratio: 3 / 4;
+    padding: 0;
+    border: 0;
+    background: var(--tile-bg);
+    color: var(--tile-fg, var(--ink));
+    text-align: left;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+  .tile:hover img { transform: scale(1.04); }
+  .tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(236, 231, 225, 0.96) 0, rgba(236, 231, 225, 0) 38%); pointer-events: none; }
+  .tile-label { z-index: 1; position: absolute; left: 18px; right: 18px; bottom: 16px; display: flex; flex-direction: column; gap: 0.2rem; }
+  .tile-label strong { font: 500 clamp(1.35rem, 2.4vw, 1.8rem)/1.1 var(--serif); }
+  .tile-label span { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: underline; text-underline-offset: 3px; }
+  @media (max-width: 760px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+  /* Quiz band */
+  .quiz-band {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: center;
+    background: #EFE3DC;
+    overflow: hidden;
+  }
+  .quiz-band-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: clamp(2rem, 5vw, 4rem) var(--gutter) clamp(2rem, 5vw, 4rem) calc(var(--gutter) + max(0px, (100vw - var(--max)) / 2));
+  }
+  .quiz-band h2 { margin: 0; font: 500 clamp(2rem, 4.4vw, 3.4rem)/1.05 var(--serif); max-width: 14ch; }
+  .quiz-band p { margin: 0; max-width: 40ch; color: #5C504A; }
+  .quiz-band .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.4rem; }
+  .quiz-band-art { position: relative; height: clamp(300px, 34vw, 440px); overflow: hidden; }
+  @media (max-width: 760px) {
+    .quiz-band { grid-template-columns: 1fr; }
+    .quiz-band-art { order: -1; height: 280px; }
+  }
+
+  /* Shop filters */
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 1rem 1.25rem;
+    padding: 1rem 0 1.25rem;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 1.25rem;
+  }
+  .f-group { display: flex; flex-direction: column; gap: 0.35rem; }
+  .f-label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip {
+    min-height: 38px;
+    padding: 0.3rem 0.95rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--white);
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  .chip:hover { border-color: var(--ink); }
+  .chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--white); }
+  .f-group select {
+    min-height: 38px;
+    padding: 0.3rem 2rem 0.3rem 0.75rem;
+    border: 1px solid var(--line);
+    border-radius: 0;
+    background: var(--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231C1714' stroke-width='1.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 0.6rem center / 14px;
+    font-size: 0.9rem;
+    appearance: none;
+    cursor: pointer;
+  }
+  .f-sort { margin-left: auto; }
+  .results-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem 1rem; margin-bottom: 1.25rem; font-size: 0.9rem; color: var(--muted); }
+  .results-bar p { margin: 0; }
+  .empty { padding: 3rem 1rem; text-align: center; color: var(--muted); }
+  .empty p { margin: 0 0 1rem; }
+  @media (max-width: 760px) { .f-sort { margin-left: 0; } }
+
+  /* Perks */
+  .perks {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+    padding-block: 2.25rem;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .perk { display: grid; grid-template-columns: auto 1fr; gap: 0.25rem 0.9rem; align-items: start; }
+  .perk svg { grid-row: span 2; width: 30px; height: 30px; color: var(--gold); }
+  .perk h3 { margin: 0; font-size: 0.95rem; font-weight: 600; }
+  .perk p { margin: 0; font-size: 0.86rem; color: var(--muted); }
+  @media (max-width: 900px) { .perks { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 520px) { .perks { grid-template-columns: 1fr; } }
+
+  /* Store */
+  .store { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); background: var(--espresso); color: var(--white); }
+  .store-text { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; padding: clamp(2rem, 5vw, 3.5rem); }
+  .store h2 { margin: 0; font: 500 clamp(1.9rem, 3.5vw, 2.6rem)/1.1 var(--serif); }
+  .store dl { display: grid; gap: 0.9rem; margin: 0.5rem 0 0.75rem; }
+  .store dt { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255, 255, 255, 0.6); }
+  .store dd { margin: 0.15rem 0 0; font-size: 1.02rem; }
+  .store-art { position: relative; min-height: 340px; overflow: hidden; }
+  .store dd a { color: inherit; text-decoration: none; }
+  .store dd a:hover { text-decoration: underline; }
+  .store-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .btn-outline-light { border-color: rgba(255, 255, 255, 0.6); color: var(--white); background: transparent; }
+  .btn-outline-light:hover { background: var(--white); color: var(--ink); }
+  @media (max-width: 760px) { .store { grid-template-columns: 1fr; } .store-art { order: -1; min-height: 260px; } }
+
+  /* About */
+  .about { max-width: 760px; margin: 0 auto; }
+  .about h2 { margin: 0 0 1rem; font: 500 clamp(1.6rem, 3vw, 2.1rem)/1.15 var(--serif); }
+  .about h3 { margin: 1.5rem 0 0.4rem; font: 500 1.25rem/1.2 var(--serif); }
+  .about p, .about li { color: #4A433E; }
+  .about p { margin: 0 0 0.9rem; }
+  .about ul { margin: 0 0 0.9rem; padding-left: 1.2rem; }
+  .about-more[hidden] { display: none; }
+
+  /* WhatsApp band */
+  .updates { background: var(--soft); text-align: center; }
+  .updates h2 { margin: 0 0 0.5rem; font: 500 clamp(1.6rem, 3vw, 2.1rem)/1.15 var(--serif); }
+  .updates p { margin: 0 auto 1.25rem; max-width: 46ch; color: var(--muted); }
+
+  /* Footer */
+  .footer { background: var(--ink); color: var(--white); }
+  .footer-grid { display: grid; grid-template-columns: 1.3fr repeat(3, 1fr); gap: 2rem; padding-block: 3rem 2rem; }
+  .footer .logo { align-items: flex-start; }
+  .footer .logo-word { padding-left: 0; }
+  .footer p { margin: 0.9rem 0 0; color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; max-width: 32ch; }
+  .footer h3 { margin: 0 0 0.9rem; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; }
+  .footer ul { display: grid; gap: 0.55rem; margin: 0; padding: 0; list-style: none; font-size: 0.9rem; color: rgba(255, 255, 255, 0.78); }
+  .footer ul a, .footer ul button { padding: 0; border: 0; background: none; color: inherit; text-decoration: none; text-align: left; cursor: pointer; }
+  .footer ul a:hover, .footer ul button:hover { color: var(--white); text-decoration: underline; }
+  .footer-bottom { padding-block: 1.25rem; border-top: 1px solid rgba(255, 255, 255, 0.14); font-size: 0.8rem; color: rgba(255, 255, 255, 0.55); }
+  @media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: 1 / -1; } }
+
+  /* ---------- Dialogs ---------- */
+  dialog { padding: 0; border: 0; background: var(--white); color: var(--ink); max-width: none; max-height: none; }
+  dialog::backdrop { background: rgba(28, 23, 20, 0.5); }
+  .drawer { position: fixed; top: 0; bottom: 0; width: min(430px, 100%); height: 100dvh; max-height: 100dvh; margin: 0; }
+  .drawer-right { left: auto; right: 0; }
+  .drawer-left { left: 0; right: auto; width: min(340px, 88%); }
+  .drawer-inner { display: flex; flex-direction: column; height: 100%; }
+  .drawer-head { display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 0.75rem 0.5rem 1.25rem; border-bottom: 1px solid var(--line); }
+  .drawer-head h2 { margin: 0; font: 500 1.3rem/1 var(--serif); }
+  .modal { width: min(940px, calc(100% - 24px)); max-height: calc(100dvh - 24px); margin: auto; overflow: auto; }
+  .modal-inner { position: relative; }
+  .modal-close { position: absolute; top: 6px; right: 6px; z-index: 1; }
+  @media (prefers-reduced-motion: no-preference) {
+    .drawer-right[open] { animation: in-right 0.28s ease-out; }
+    .drawer-left[open] { animation: in-left 0.28s ease-out; }
+    .modal[open], .search-panel[open] { animation: fade-up 0.22s ease-out; }
+  }
+  @keyframes in-right { from { transform: translateX(100%); } }
+  @keyframes in-left { from { transform: translateX(-100%); } }
+  @keyframes fade-up { from { opacity: 0; transform: translateY(12px); } }
+
+  /* Quick shop */
+  .qs-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .qs-media { aspect-ratio: 1 / 1.1; background: #ECE7E1; overflow: hidden; }
+  .qs-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .qs-info { display: flex; flex-direction: column; gap: 0.85rem; padding: 2.5rem clamp(1.25rem, 3vw, 2.25rem) 2rem; }
+  .qs-info h2 { margin: 0.2rem 0 0; font: 500 2rem/1.1 var(--serif); }
+  .qs-notes { margin: 0; color: var(--muted); }
+  .qs-price { font-size: 1.2rem; margin: 0; }
+  .opt { margin: 0; padding: 0; border: 0; min-width: 0; }
+  .opt legend { padding: 0; margin-bottom: 0.5rem; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
+  .opt legend span { font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--muted); margin-left: 0.4rem; }
+  .variants { display: flex; flex-wrap: wrap; gap: 8px; }
+  .variant {
+    min-width: 72px;
+    min-height: 44px;
+    padding: 0.4rem 0.9rem;
+    border: 1px solid #CFC8C0;
+    background: var(--white);
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  .variant:hover { border-color: var(--ink); }
+  .variant[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--white); }
+  .pick-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 12px; max-height: 220px; overflow-y: auto; padding: 0.25rem; border: 1px solid var(--line); }
+  .pick-list label { display: flex; align-items: center; gap: 0.5rem; padding: 0.3rem; font-size: 0.9rem; cursor: pointer; }
+  .pick-list input { width: 18px; height: 18px; accent-color: var(--ink); }
+  .pick-list input:disabled + span { color: #B4ADA6; }
+  .qty { display: inline-flex; align-items: center; border: 1px solid #CFC8C0; }
+  .qty button { width: 40px; height: 42px; border: 0; background: none; font-size: 1.1rem; cursor: pointer; }
+  .qty span { min-width: 28px; text-align: center; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .qty-sm button { width: 32px; height: 32px; }
+  .qs-error { min-height: 1.2em; margin: -0.3rem 0 0; color: var(--sale); font-size: 0.86rem; }
+  @media (max-width: 760px) {
+    .qs-grid { grid-template-columns: 1fr; }
+    .qs-media { aspect-ratio: auto; height: 300px; }
+    .qs-info { padding-top: 1.25rem; }
+  }
+
+  /* Cart */
+  .cart-body { flex: 1; overflow-y: auto; padding: 0 1.25rem; }
+  .cart-list { margin: 0; padding: 0; list-style: none; }
+  .cart-item { display: grid; grid-template-columns: 84px 1fr; gap: 1rem; padding-block: 1.1rem; border-bottom: 1px solid var(--line); }
+  .ci-img { aspect-ratio: 1 / 1.1; background: #ECE7E1; overflow: hidden; }
+  .ci-img img, .s-img img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .ci-info { display: flex; flex-direction: column; gap: 0.25rem; min-width: 0; }
+  .ci-name { margin: 0; font: 500 1.05rem/1.2 var(--serif); }
+  .ci-meta { margin: 0; font-size: 0.82rem; color: var(--muted); }
+  .ci-row { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-top: 0.25rem; }
+  .ci-price { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .ci-info .link-btn { align-self: flex-start; font-size: 0.78rem; color: var(--muted); }
+  .cart-empty { display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 4rem 1rem; text-align: center; }
+  .cart-empty p { margin: 0; color: var(--muted); }
+  .cart-foot { display: grid; gap: 0.75rem; padding: 1rem 1.25rem 1.25rem; border-top: 1px solid var(--line); }
+  .cart-foot[hidden] { display: none; }
+  .subtotal { display: flex; justify-content: space-between; margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .cart-note { margin: 0; font-size: 0.8rem; color: var(--muted); }
+
+  /* Menu */
+  .menu-links { display: flex; flex-direction: column; padding: 0.5rem 1.25rem; }
+  .menu-links a, .menu-links button {
+    padding: 0.95rem 0;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    background: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-align: left;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* Search */
+  .search-panel { position: fixed; inset: 0 0 auto 0; width: 100%; max-height: 85dvh; margin: 0; overflow: auto; }
+  .search-bar { display: flex; align-items: center; gap: 0.5rem; padding-block: 0.75rem; border-bottom: 1px solid var(--line); }
+  .search-bar > svg { width: 22px; height: 22px; flex: none; }
+  .search-bar input { flex: 1; min-width: 0; height: 48px; border: 0; outline: none; background: none; font-size: 1.15rem; }
+  .search-results { padding-block: 1.25rem 2rem; }
+  .s-label { margin: 0 0 0.75rem; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .s-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .s-chips button { padding: 0.5rem 0.95rem; border: 1px solid var(--line); border-radius: 999px; background: var(--white); font-size: 0.9rem; cursor: pointer; }
+  .s-chips button:hover { border-color: var(--ink); }
+  .s-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+  .s-item { display: grid; grid-template-columns: 64px 1fr; align-items: center; gap: 0.9rem; width: 100%; padding: 0; border: 0; background: none; text-align: left; cursor: pointer; }
+  .s-img { aspect-ratio: 1 / 1.1; background: #ECE7E1; overflow: hidden; display: block; }
+  .s-name { display: block; font: 500 1.02rem/1.2 var(--serif); }
+  .s-item:hover .s-name { text-decoration: underline; }
+  .s-item .p-price { margin-top: 0.15rem; font-size: 0.85rem; }
+  .s-empty { margin: 0; color: var(--muted); }
+
+  /* Quiz */
+  .quiz { width: min(640px, calc(100% - 24px)); }
+  .quiz-inner { padding: 2.5rem clamp(1.25rem, 4vw, 2.5rem) 2rem; }
+  .quiz-step { margin: 0 0 0.4rem; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+  .quiz-progress { height: 2px; margin-bottom: 1.5rem; background: var(--line); }
+  .quiz-progress span { display: block; height: 100%; background: var(--gold); transition: width 0.3s ease; }
+  .quiz h2 { margin: 0 0 1.25rem; font: 500 clamp(1.5rem, 3.5vw, 2rem)/1.15 var(--serif); }
+  .quiz-options { display: grid; gap: 10px; }
+  .quiz-options button {
+    min-height: 54px;
+    padding: 0.6rem 1.1rem;
+    border: 1px solid var(--line);
+    background: var(--white);
+    font-size: 1rem;
+    text-align: left;
+    cursor: pointer;
+  }
+  .quiz-options button:hover { border-color: var(--ink); background: var(--soft); }
+  .quiz-foot { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-top: 1.5rem; }
+  .matches { display: grid; gap: 12px; margin: 0 0 1.25rem; padding: 0; list-style: none; }
+  .match { display: grid; grid-template-columns: 76px 1fr auto; align-items: center; gap: 1rem; padding: 0.6rem; border: 1px solid var(--line); }
+  .match h3 { margin: 0; font: 500 1.1rem/1.2 var(--serif); }
+  .match p { margin: 0.15rem 0 0; font-size: 0.84rem; color: var(--muted); }
+  .match .btn { min-height: 40px; padding: 0 1rem; }
+  @media (max-width: 520px) {
+    .match { grid-template-columns: 64px 1fr; }
+    .match .btn { grid-column: 1 / -1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+
+<h1 class="sr-only">SN Fragrances: perfumes and attars for men and women</h1>
+
+<div class="announce" role="region" aria-label="Announcements">
+  <p id="announce-text" aria-live="polite">New winter scents are here</p>
+  <button type="button" class="icon-btn" id="announce-pause" aria-label="Pause announcements" aria-pressed="false">
+    <svg viewBox="0 0 24 24" class="icon"><path d="M9 6v12M15 6v12"/></svg>
+  </button>
+</div>
+
+<header class="header">
+  <div class="wrap header-top">
+    <div class="h-left">
+      <button type="button" class="icon-btn menu-btn" data-open="menu" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" class="icon"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <button type="button" class="icon-btn" data-open="search" aria-label="Search">
+        <svg viewBox="0 0 24 24" class="icon"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+      </button>
+    </div>
+    <a class="logo" href="#top" aria-label="SN Fragrances home">
+      <svg class="emblem" viewBox="-3 -3 70 70" aria-hidden="true" focusable="false"><circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="32" cy="32" r="25.4" fill="none" stroke="currentColor" stroke-width="0.8"/><path d="M2 29.4 4.6 32 2 34.6-.6 32Z M62 29.4 64.6 32 62 34.6 59.4 32Z" fill="currentColor"/><text x="32.6" y="33.5" text-anchor="middle" dominant-baseline="central" font-family="Bodoni Moda, Didot, Georgia, serif" font-style="italic" font-weight="600" font-size="26" fill="currentColor">SN</text></svg>
+      <span class="logo-word">SN Fragrances</span>
+    </a>
+    <div class="h-right">
+      <button type="button" class="icon-btn" data-open="cart" aria-label="Open cart">
+        <svg viewBox="0 0 24 24" class="icon"><path d="M5 8h14l-1.2 12.1a1 1 0 0 1-1 .9H7.2a1 1 0 0 1-1-.9L5 8z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg>
+        <span class="cart-count" id="cart-count" hidden>0</span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-row">
+    <nav class="wrap main-nav" aria-label="Main">
+      <a href="#shop" data-shop data-gender="men">Men</a>
+      <a href="#shop" data-shop data-gender="women">Women</a>
+      <a href="#shop" data-shop data-family="oud">Oud</a>
+      <a href="#shop" data-shop data-type="attar">Attars</a>
+      <a href="#shop" data-shop data-type="gifts">Gift sets</a>
+      <a href="#shop" data-shop data-price="under">Under Rs. 2,000</a>
+      <a href="#top" data-quick="sample-set">Sample set</a>
+      <a href="#top" data-open="quiz">Scent quiz</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- Banner slider -->
+  <section class="hero" aria-roledescription="carousel" aria-label="Featured">
+    <div class="slides" id="slides" tabindex="0">
+      <div class="slide" style="--slide-bg:#2A1D16;--slide-fg:#FFFFFF" role="group" aria-roledescription="slide" aria-label="1 of 3">
+        <div class="slide-text">
+          <p class="slide-kicker">Eau de Parfum</p>
+          <h2>Scents that stay with you all day</h2>
+          <p class="slide-sub">Long-lasting perfumes for men and women. 50 ml from Rs. 1,490.</p>
+          <a class="btn btn-light" href="#shop" data-shop>Shop all perfumes</a>
+        </div>
+        <div class="slide-art" aria-hidden="true">
+          <img class="art-img" src="img/hero-1.webp" alt="" width="1200" height="1000" fetchpriority="high">
+        </div>
+      </div>
+
+      <div class="slide" style="--slide-bg:#1F150F;--slide-fg:#F3E6CF" role="group" aria-roledescription="slide" aria-label="2 of 3">
+        <div class="slide-text">
+          <p class="slide-kicker">The Oud Collection</p>
+          <h2>Rich, smoky and made for evenings</h2>
+          <p class="slide-sub">Oud perfumes and alcohol-free oud attars.</p>
+          <a class="btn btn-gold" href="#shop" data-shop data-family="oud">Shop oud</a>
+        </div>
+        <div class="slide-art" aria-hidden="true">
+          <img class="art-img" src="img/hero-2.webp" alt="" width="1200" height="1000">
+        </div>
+      </div>
+
+      <div class="slide" style="--slide-bg:#EFE3DC;--slide-fg:#1C1714" role="group" aria-roledescription="slide" aria-label="3 of 3">
+        <div class="slide-text">
+          <p class="slide-kicker">Sample set</p>
+          <h2>Can't decide? Try five scents</h2>
+          <p class="slide-sub">Pick any 5 perfumes in 5 ml vials for Rs. 1,200, then choose your full bottle.</p>
+          <a class="btn btn-dark" href="#top" data-quick="sample-set">Build your sample set</a>
+        </div>
+        <div class="slide-art" aria-hidden="true">
+          <img class="art-img" src="img/hero-3.webp" alt="" width="1200" height="1000">
+        </div>
+      </div>
+    </div>
+    <button type="button" class="icon-btn hero-arrow hero-prev" id="hero-prev" aria-label="Previous slide">
+      <svg viewBox="0 0 24 24" class="icon"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <button type="button" class="icon-btn hero-arrow hero-next" id="hero-next" aria-label="Next slide">
+      <svg viewBox="0 0 24 24" class="icon"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+    <div class="dots" id="dots"></div>
+  </section>
+
+  <!-- Top collections -->
+  <section class="section wrap" aria-labelledby="coll-title">
+    <div class="sec-head center"><h2 id="coll-title">Top perfume collections</h2></div>
+    <nav class="pills" aria-label="Collections">
+      <a href="#shop" data-shop data-family="fresh">Fresh</a>
+      <a href="#shop" data-shop data-family="sweet">Sweet</a>
+      <a href="#shop" data-shop data-family="woody">Woody</a>
+      <a href="#shop" data-shop data-family="floral">Floral</a>
+      <a href="#shop" data-shop data-family="oud">Oud</a>
+      <a href="#shop" data-shop data-type="attar">Attars</a>
+      <a href="#shop" data-shop data-type="gifts">Gift sets</a>
+      <a href="#shop" data-shop data-price="under">Under Rs. 2,000</a>
+    </nav>
+  </section>
+
+  <!-- Best sellers -->
+  <section class="section wrap" id="best-sellers" aria-labelledby="best-title" style="padding-top:0">
+    <div class="sec-head">
+      <h2 id="best-title">Our best sellers</h2>
+      <div class="row-controls">
+        <div class="tabs" role="tablist" aria-label="Best sellers for">
+          <button type="button" class="tab" role="tab" data-best="all" aria-selected="true" aria-controls="best-row">All</button>
+          <button type="button" class="tab" role="tab" data-best="men" aria-selected="false" aria-controls="best-row">Men</button>
+          <button type="button" class="tab" role="tab" data-best="women" aria-selected="false" aria-controls="best-row">Women</button>
+        </div>
+        <div class="row-arrows">
+          <button type="button" class="icon-btn" id="best-prev" aria-label="Scroll best sellers left">
+            <svg viewBox="0 0 24 24" class="icon"><path d="M15 5l-7 7 7 7"/></svg>
+          </button>
+          <button type="button" class="icon-btn" id="best-next" aria-label="Scroll best sellers right">
+            <svg viewBox="0 0 24 24" class="icon"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row" id="best-row" role="tabpanel"></div>
+  </section>
+
+  <!-- Category tiles -->
+  <section class="section wrap" aria-labelledby="tiles-title" style="padding-top:0">
+    <div class="sec-head"><h2 id="tiles-title">Shop by category</h2></div>
+    <div class="tiles">
+      <button type="button" class="tile" data-quick="sample-set" style="--tile-bg:#ECE7E1">
+        <img src="img/sn-sample-set.webp" alt="" width="800" height="880" loading="lazy">
+        <span class="tile-label"><strong>Sample set</strong><span>Try 5 scents</span></span>
+      </button>
+      <a class="tile" href="#shop" data-shop data-type="attar" style="--tile-bg:#ECE7E1">
+        <img src="img/sn-musk-attar.webp" alt="" width="800" height="880" loading="lazy">
+        <span class="tile-label"><strong>Attars</strong><span>Shop now</span></span>
+      </a>
+      <a class="tile" href="#shop" data-shop data-type="gifts" style="--tile-bg:#ECE7E1">
+        <img src="img/sn-gift-box.webp" alt="" width="800" height="880" loading="lazy">
+        <span class="tile-label"><strong>Gift sets</strong><span>Shop now</span></span>
+      </a>
+      <a class="tile" href="#shop" data-shop data-price="under" style="--tile-bg:#ECE7E1">
+        <img src="img/sn-aqua.webp" alt="" width="800" height="880" loading="lazy">
+        <span class="tile-label"><strong>Under Rs. 2,000</strong><span>Shop now</span></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Quiz band -->
+  <section class="quiz-band" aria-labelledby="quiz-band-title">
+    <div class="quiz-band-text">
+      <h2 id="quiz-band-title">Not sure which scent is yours?</h2>
+      <p>Answer three quick questions and we'll suggest the perfumes that suit you. Or try five of them with a sample set first.</p>
+      <div class="actions">
+        <button type="button" class="btn btn-dark" data-open="quiz">Take the scent quiz</button>
+        <button type="button" class="btn btn-outline" data-quick="sample-set">Try a sample set</button>
+      </div>
+    </div>
+    <div class="quiz-band-art" aria-hidden="true">
+      <img class="art-img" src="img/quiz-art.webp" alt="" width="1200" height="900" loading="lazy">
+    </div>
+  </section>
+
+  <!-- Shop all -->
+  <section class="section wrap" id="shop" aria-labelledby="shop-title">
+    <div class="sec-head">
+      <div>
+        <h2 id="shop-title">Shop all perfumes</h2>
+        <p>Filter by who it's for, scent family and price.</p>
+      </div>
+    </div>
+    <div class="filters">
+      <div class="f-group">
+        <span class="f-label" id="f-gender-label">For</span>
+        <div class="chips" role="group" aria-labelledby="f-gender-label">
+          <button type="button" class="chip" data-gender-chip="all" aria-pressed="true">All</button>
+          <button type="button" class="chip" data-gender-chip="men" aria-pressed="false">Men</button>
+          <button type="button" class="chip" data-gender-chip="women" aria-pressed="false">Women</button>
+          <button type="button" class="chip" data-gender-chip="unisex" aria-pressed="false">Unisex</button>
+        </div>
+      </div>
+      <div class="f-group">
+        <label class="f-label" for="f-family">Scent family</label>
+        <select id="f-family">
+          <option value="all">All scents</option>
+          <option value="fresh">Fresh</option>
+          <option value="sweet">Sweet</option>
+          <option value="woody">Woody</option>
+          <option value="floral">Floral</option>
+          <option value="oud">Oud</option>
+        </select>
+      </div>
+      <div class="f-group">
+        <label class="f-label" for="f-type">Type</label>
+        <select id="f-type">
+          <option value="all">All types</option>
+          <option value="edp">Perfumes</option>
+          <option value="attar">Attars</option>
+          <option value="gifts">Gift and sample sets</option>
+        </select>
+      </div>
+      <div class="f-group">
+        <label class="f-label" for="f-price">Price</label>
+        <select id="f-price">
+          <option value="any">Any price</option>
+          <option value="under">Under Rs. 2,000</option>
+        </select>
+      </div>
+      <div class="f-group f-sort">
+        <label class="f-label" for="f-sort">Sort by</label>
+        <select id="f-sort">
+          <option value="featured">Featured</option>
+          <option value="low">Price: low to high</option>
+          <option value="high">Price: high to low</option>
+        </select>
+      </div>
+    </div>
+    <div class="results-bar">
+      <p id="results-count" aria-live="polite"></p>
+      <button type="button" class="link-btn" id="clear-filters" hidden>Clear filters</button>
+    </div>
+    <div class="grid" id="shop-grid"></div>
+  </section>
+
+  <!-- Perks -->
+  <section class="wrap" aria-label="Why shop with us">
+    <div class="perks">
+      <div class="perk">
+        <svg viewBox="0 0 32 32" class="icon"><path d="M16 4c5 7 8 11 8 15a8 8 0 0 1-16 0c0-4 3-8 8-15z"/><path d="M12 20a4 4 0 0 0 4 4"/></svg>
+        <h3>Long-lasting</h3><p>Eau de Parfum strength in every bottle.</p>
+      </div>
+      <div class="perk">
+        <svg viewBox="0 0 32 32" class="icon"><rect x="5" y="9" width="5" height="18" rx="2.5"/><rect x="13.5" y="9" width="5" height="18" rx="2.5"/><rect x="22" y="9" width="5" height="18" rx="2.5"/><path d="M5 6h5M13.5 6h5M22 6h5"/></svg>
+        <h3>Try before you buy</h3><p>Pick any 5 scents in a sample set.</p>
+      </div>
+      <div class="perk">
+        <svg viewBox="0 0 32 32" class="icon"><path d="M6 26l1.6-5A10 10 0 1 1 11 24.4L6 26z"/><path d="M12 13h8M12 17h5"/></svg>
+        <h3>Order on WhatsApp</h3><p>Your cart is sent to us in one message.</p>
+      </div>
+      <div class="perk">
+        <svg viewBox="0 0 32 32" class="icon"><rect x="5" y="13" width="22" height="14"/><rect x="3" y="9" width="26" height="5"/><path d="M16 9v18M16 9c-2-5-8-5-7-1 1 3 7 1 7 1zM16 9c2-5 8-5 7-1-1 3-7 1-7 1z"/></svg>
+        <h3>Ready to gift</h3><p>Gift sets come boxed and wrapped.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Store -->
+  <section class="section wrap" id="store" aria-labelledby="store-title">
+    <div class="store">
+      <div class="store-text">
+        <h2 id="store-title">Visit our store</h2>
+        <p style="margin:0;color:rgba(255,255,255,0.75)">Smell every scent in person before you buy.</p>
+        <dl>
+          <div><dt>Address</dt><dd>5E North Nazimabad, Karachi</dd></div>
+          <div><dt>Phone and WhatsApp</dt><dd><a href="tel:+923378436050">0337 8436050</a></dd></div>
+          <div><dt>Owner</dt><dd>Saad Naeem</dd></div>
+        </dl>
+        <div class="store-actions">
+          <a class="btn btn-gold" href="https://www.google.com/maps/search/?api=1&amp;query=5E+North+Nazimabad+Karachi" target="_blank" rel="noopener">Get directions</a>
+          <a class="btn btn-outline-light" id="directions-link" href="https://wa.me/" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        </div>
+      </div>
+      <div class="store-art" aria-hidden="true">
+        <img class="art-img" src="img/hero-2.webp" alt="" width="1200" height="1000" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section wrap" aria-labelledby="about-title" style="padding-top:0">
+    <div class="about">
+      <h2 id="about-title">About SN Fragrances</h2>
+      <p>SN Fragrances is a Karachi perfume house owned by Saad Naeem. We make long-lasting perfumes and attars for men and women. Every scent is blended to last through a full day, from fresh everyday perfumes to rich ouds for evenings and events.</p>
+      <div class="about-more" id="about-more" hidden>
+        <h3>How to choose your perfume</h3>
+        <p>Start with the scent family you already like. Fresh scents feel clean and light, sweet scents are warm and cosy, woody scents are calm and grown-up, floral scents are soft and romantic, and oud is deep and smoky. If you're not sure, a sample set lets you wear five scents for a few days each before you choose a full bottle.</p>
+        <h3>Perfume or attar?</h3>
+        <p>Our perfumes are Eau de Parfum sprays. Attars are concentrated, alcohol-free oils in a roll-on bottle, so a small amount lasts a long time and they're easy to carry.</p>
+        <h3>Make your scent last longer</h3>
+        <ul>
+          <li>Spray on your wrists, neck and behind your ears, where your skin is warm.</li>
+          <li>Apply after a shower, on moisturised skin.</li>
+          <li>Don't rub your wrists together after spraying.</li>
+          <li>Keep bottles in a cool, dark place, away from sunlight and heat.</li>
+        </ul>
+      </div>
+      <button type="button" class="link-btn" id="about-toggle" aria-expanded="false" aria-controls="about-more">Read more</button>
+    </div>
+  </section>
+
+  <!-- WhatsApp updates -->
+  <section class="section updates" aria-labelledby="updates-title">
+    <div class="wrap">
+      <h2 id="updates-title">Hear about new scents first</h2>
+      <p>Message us on WhatsApp and we'll let you know when new perfumes and offers arrive.</p>
+      <a class="btn btn-dark" id="updates-link" href="https://wa.me/" target="_blank" rel="noopener">Message us on WhatsApp</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="logo" href="#top"><svg class="emblem" viewBox="-3 -3 70 70" aria-hidden="true" focusable="false"><circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="32" cy="32" r="25.4" fill="none" stroke="currentColor" stroke-width="0.8"/><path d="M2 29.4 4.6 32 2 34.6-.6 32Z M62 29.4 64.6 32 62 34.6 59.4 32Z" fill="currentColor"/><text x="32.6" y="33.5" text-anchor="middle" dominant-baseline="central" font-family="Bodoni Moda, Didot, Georgia, serif" font-style="italic" font-weight="600" font-size="26" fill="currentColor">SN</text></svg><span class="logo-word">SN Fragrances</span></a>
+      <p>Long-lasting perfumes and attars for men and women, made in Karachi. Owned by Saad Naeem.</p>
+    </div>
+    <div>
+      <h3>Shop</h3>
+      <ul>
+        <li><a href="#shop" data-shop data-gender="men">Perfumes for men</a></li>
+        <li><a href="#shop" data-shop data-gender="women">Perfumes for women</a></li>
+        <li><a href="#shop" data-shop data-type="attar">Attars</a></li>
+        <li><a href="#shop" data-shop data-type="gifts">Gift sets</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Help</h3>
+      <ul>
+        <li><button type="button" data-open="quiz">Scent quiz</button></li>
+        <li><button type="button" data-quick="sample-set">Sample set</button></li>
+        <li><a href="#store">Visit our store</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Get in touch</h3>
+      <ul>
+        <li><a href="tel:+923378436050">0337 8436050</a></li>
+        <li><a id="footer-whatsapp" href="https://wa.me/" target="_blank" rel="noopener">Chat on WhatsApp</a></li>
+        <li>5E North Nazimabad, Karachi</li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">&copy; 2026 SN Fragrances</div>
+</footer>
+
+<!-- Quick shop -->
+<dialog id="quick-shop" class="modal" aria-labelledby="qs-name">
+  <div class="modal-inner">
+    <button type="button" class="icon-btn modal-close" data-close aria-label="Close">
+      <svg viewBox="0 0 24 24" class="icon"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="qs-grid">
+      <div class="qs-media" id="qs-media"></div>
+      <div class="qs-info">
+        <div>
+          <p class="p-range" id="qs-range"></p>
+          <h2 id="qs-name"></h2>
+        </div>
+        <p class="qs-notes" id="qs-notes"></p>
+        <p class="p-price qs-price" id="qs-price"></p>
+        <fieldset class="opt">
+          <legend>Size</legend>
+          <div class="variants" id="qs-variants"></div>
+        </fieldset>
+        <fieldset class="opt" id="qs-pick-wrap" hidden>
+          <legend>Choose 5 scents <span id="qs-pick-count">0 of 5 chosen</span></legend>
+          <div class="pick-list" id="qs-pick"></div>
+        </fieldset>
+        <div class="qty" role="group" aria-label="Quantity">
+          <button type="button" id="qs-dec" aria-label="Decrease quantity">&minus;</button>
+          <span id="qs-qty" aria-live="polite">1</span>
+          <button type="button" id="qs-inc" aria-label="Increase quantity">+</button>
+        </div>
+        <p class="qs-error" id="qs-error" role="alert"></p>
+        <button type="button" class="btn btn-dark btn-block" id="qs-add">Add to cart</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- Cart -->
+<dialog id="cart" class="drawer drawer-right" aria-labelledby="cart-title">
+  <div class="drawer-inner">
+    <div class="drawer-head">
+      <h2 id="cart-title">Your cart</h2>
+      <button type="button" class="icon-btn" data-close aria-label="Close cart">
+        <svg viewBox="0 0 24 24" class="icon"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="cart-body" id="cart-body"></div>
+    <div class="cart-foot" id="cart-foot" hidden>
+      <p class="subtotal"><span>Subtotal</span><span id="cart-subtotal">Rs. 0</span></p>
+      <a class="btn btn-dark btn-block" id="checkout" href="https://wa.me/" target="_blank" rel="noopener">Checkout on WhatsApp</a>
+      <p class="cart-note">Opens WhatsApp with your order written in. Add your name and address, then send.</p>
+    </div>
+  </div>
+</dialog>
+
+<!-- Menu (phones) -->
+<dialog id="menu" class="drawer drawer-left" aria-label="Menu">
+  <div class="drawer-inner">
+    <div class="drawer-head">
+      <span class="logo" style="flex-direction:row;gap:0.6rem;align-items:center"><svg class="emblem" viewBox="-3 -3 70 70" aria-hidden="true" focusable="false"><circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="32" cy="32" r="25.4" fill="none" stroke="currentColor" stroke-width="0.8"/><path d="M2 29.4 4.6 32 2 34.6-.6 32Z M62 29.4 64.6 32 62 34.6 59.4 32Z" fill="currentColor"/><text x="32.6" y="33.5" text-anchor="middle" dominant-baseline="central" font-family="Bodoni Moda, Didot, Georgia, serif" font-style="italic" font-weight="600" font-size="26" fill="currentColor">SN</text></svg><span class="logo-word" style="margin:0;padding-left:0">SN Fragrances</span></span>
+      <button type="button" class="icon-btn" data-close aria-label="Close menu">
+        <svg viewBox="0 0 24 24" class="icon"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <nav class="menu-links" aria-label="Menu">
+      <a href="#shop" data-shop data-gender="men">Men</a>
+      <a href="#shop" data-shop data-gender="women">Women</a>
+      <a href="#shop" data-shop data-family="oud">Oud</a>
+      <a href="#shop" data-shop data-type="attar">Attars</a>
+      <a href="#shop" data-shop data-type="gifts">Gift sets</a>
+      <a href="#shop" data-shop data-price="under">Under Rs. 2,000</a>
+      <button type="button" data-quick="sample-set">Sample set</button>
+      <button type="button" data-open="quiz">Scent quiz</button>
+      <a href="#store">Visit our store</a>
+    </nav>
+  </div>
+</dialog>
+
+<!-- Search -->
+<dialog id="search" class="search-panel" aria-label="Search">
+  <div class="wrap">
+    <div class="search-bar">
+      <svg viewBox="0 0 24 24" class="icon"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+      <label for="search-input" class="sr-only">Search perfumes</label>
+      <input id="search-input" type="search" placeholder="Search by name or note, like rose or oud" autocomplete="off" autofocus>
+      <button type="button" class="icon-btn" data-close aria-label="Close search">
+        <svg viewBox="0 0 24 24" class="icon"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="search-results" id="search-results" aria-live="polite"></div>
+  </div>
+</dialog>
+
+<!-- Quiz -->
+<dialog id="quiz" class="modal quiz" aria-labelledby="quiz-title">
+  <div class="modal-inner quiz-inner">
+    <button type="button" class="icon-btn modal-close" data-close aria-label="Close quiz">
+      <svg viewBox="0 0 24 24" class="icon"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div id="quiz-body"></div>
+  </div>
+</dialog>
+
+<script>
+  // ============ SETTINGS ============
+  // Your WhatsApp number in international format, no + or spaces. Example: "923001234567".
+  // While it's empty, WhatsApp asks the customer which chat to send the message to.
+  const WHATSAPP_NUMBER = "923378436050";
+
+  // ============ PRODUCTS ============
+  // variants: [size, price, old price (only for sale items)]
+  // bottle: shape (flacon, round, tall, oud, attar, set, gift), liquid colour and cap (gold, black, silver, wood)
+  // Every product photo lives in the img folder, named after the product id.
+  const products = [
+    { id: "sn-noir", name: "SN Noir", range: "Signature Range", gender: "men", family: "woody", when: ["evening", "office"],
+      notes: "Black pepper, leather, amber", variants: [["50 ml", 2490], ["100 ml", 3990]], best: true, badge: "Best seller" },
+    { id: "sn-aqua", name: "SN Aqua", range: "Classic Range", gender: "men", family: "fresh", when: ["daily", "office"],
+      notes: "Bergamot, sea salt, cedar", variants: [["50 ml", 1690], ["100 ml", 2690]], best: true },
+    { id: "sn-oud", name: "SN Oud", range: "Oud Range", gender: "unisex", family: "oud", when: ["evening"],
+      notes: "Oud, rose, saffron", variants: [["50 ml", 2990], ["100 ml", 4790]], best: true, badge: "New" },
+    { id: "sn-rose", name: "SN Rose", range: "Signature Range", gender: "women", family: "floral", when: ["evening", "daily"],
+      notes: "Rose, peony, white musk", variants: [["50 ml", 2390], ["100 ml", 3790]], best: true, badge: "Best seller" },
+    { id: "sn-night", name: "SN Night", range: "Signature Range", gender: "men", family: "sweet", when: ["evening"],
+      notes: "Lavender, vanilla, tonka", variants: [["50 ml", 2290, 2590], ["100 ml", 3690]], best: true },
+    { id: "sn-bloom", name: "SN Bloom", range: "Classic Range", gender: "women", family: "sweet", when: ["daily"],
+      notes: "Pear, vanilla, praline", variants: [["50 ml", 1690], ["100 ml", 2590]], best: true },
+    { id: "sn-amber", name: "SN Amber", range: "Signature Range", gender: "women", family: "sweet", when: ["evening", "daily"],
+      notes: "Amber, vanilla, benzoin", variants: [["50 ml", 2490], ["100 ml", 3890]], best: true },
+    { id: "sn-cedar", name: "SN Cedar", range: "Classic Range", gender: "men", family: "woody", when: ["daily", "office"],
+      notes: "Cedarwood, vetiver, birch smoke", variants: [["50 ml", 1590], ["100 ml", 2490]] },
+    { id: "sn-jasmine", name: "SN Jasmine", range: "Signature Range", gender: "women", family: "floral", when: ["office", "daily"],
+      notes: "Jasmine, orange blossom, sandalwood", variants: [["50 ml", 2290], ["100 ml", 3590]] },
+    { id: "sn-saffron", name: "SN Saffron", range: "Oud Range", gender: "men", family: "oud", when: ["evening"],
+      notes: "Saffron, oud, leather", variants: [["50 ml", 3190], ["100 ml", 4990]] },
+    { id: "sn-cherry", name: "SN Cherry", range: "Classic Range", gender: "women", family: "sweet", when: ["evening"],
+      notes: "Black cherry, almond, tonka", variants: [["50 ml", 1490, 1790], ["100 ml", 2390]] },
+    { id: "sn-lily", name: "SN Lily", range: "Classic Range", gender: "women", family: "fresh", when: ["daily", "office"],
+      notes: "Lily, green tea, musk", variants: [["50 ml", 1590], ["100 ml", 2490]] },
+    { id: "sn-musk-attar", name: "SN White Musk Attar", range: "Attar", gender: "unisex", family: "fresh", when: ["daily", "office"],
+      notes: "Clean white musk, alcohol-free roll-on", variants: [["6 ml", 990], ["12 ml", 1690]] },
+    { id: "sn-oud-attar", name: "SN Oud Attar", range: "Attar", gender: "unisex", family: "oud", when: ["evening"],
+      notes: "Agarwood, amber, alcohol-free roll-on", variants: [["6 ml", 1290], ["12 ml", 2190]], badge: "New" },
+    { id: "sample-set", name: "SN Sample Set: pick any 5", range: "Sample Set", gender: "unisex", family: null, when: [],
+      notes: "Five 5 ml vials of the perfumes you choose", variants: [["5 x 5 ml", 1200]], pick: 5, img: "img/sn-sample-set.webp" },
+    { id: "his-hers", name: "SN His & Hers Gift Box", range: "Gift Set", gender: "unisex", family: null, when: [],
+      notes: "SN Noir 50 ml and SN Rose 50 ml, boxed and wrapped", variants: [["2 x 50 ml", 4490, 4880]], img: "img/sn-gift-box.webp" }
+  ];
+  products.forEach((p) => { p.img = p.img || "img/" + p.id + ".webp"; });
+  const byId = Object.fromEntries(products.map((p) => [p.id, p]));
+  const perfumes = products.filter((p) => p.family && p.range !== "Attar");
+
+  // ============ HELPERS ============
+  const money = (n) => "Rs. " + n.toLocaleString("en-US");
+  const escapeHtml = (s) => String(s).replace(/[&<>"']/g, (c) => (
+    { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]
+  ));
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const cheapest = (p) => p.variants.reduce((a, b) => (a[1] <= b[1] ? a : b));
+  const minPrice = (p) => cheapest(p)[1];
+  const typeOf = (p) => (p.range === "Attar" ? "attar" : p.family ? "edp" : "gifts");
+
+  function whatsappLink(message) {
+    const base = WHATSAPP_NUMBER ? "https://wa.me/" + WHATSAPP_NUMBER : "https://wa.me/";
+    return base + "?text=" + encodeURIComponent(message);
+  }
+
+  function priceHTML(p) {
+    const v = cheapest(p);
+    const from = p.variants.length > 1 ? `<span class="from">from</span>` : "";
+    return v[2]
+      ? `${from}<span class="sale">${money(v[1])}</span><s>${money(v[2])}</s>`
+      : `${from}<span>${money(v[1])}</span>`;
+  }
+
+  // ============ PRODUCT PHOTOS ============
+  function photo(p, lazy = true) {
+    return `<img src="${p.img}" alt="${escapeHtml(p.name)}" width="800" height="880"${lazy ? ' loading="lazy"' : ""}>`;
+  }
+
+  // ============ PRODUCT CARDS ============
+  function productCard(p) {
+    const onSale = p.variants.some((v) => v[2]);
+    const badge = onSale
+      ? `<span class="badge badge-sale">Sale</span>`
+      : p.badge ? `<span class="badge${p.badge === "New" ? " badge-gold" : ""}">${p.badge}</span>` : "";
+    return `
+      <article class="product">
+        <div class="p-media">
+          <button type="button" class="p-open" data-quick="${p.id}" aria-label="View ${escapeHtml(p.name)}">${photo(p)}</button>
+          ${badge}
+        </div>
+        <div class="p-info">
+          <h3><button type="button" class="p-name" data-quick="${p.id}">${escapeHtml(p.name)}</button></h3>
+          <p class="p-range">${p.range}</p>
+          <p class="p-notes">${escapeHtml(p.notes)}</p>
+          <p class="p-price">${priceHTML(p)}</p>
+          <button type="button" class="btn btn-outline btn-block p-add" data-quick="${p.id}">Add to cart</button>
+        </div>
+      </article>`;
+  }
+
+  // Best sellers row
+  const bestRow = document.getElementById("best-row");
+  const bestTabs = document.querySelectorAll("[data-best]");
+  function renderBest(who) {
+    bestTabs.forEach((t) => t.setAttribute("aria-selected", String(t.dataset.best === who)));
+    bestRow.innerHTML = products
+      .filter((p) => p.best && (who === "all" || p.gender === who || p.gender === "unisex"))
+      .map(productCard).join("");
+    bestRow.scrollLeft = 0;
+  }
+  bestTabs.forEach((t) => t.addEventListener("click", () => renderBest(t.dataset.best)));
+  const scrollBest = (dir) => bestRow.scrollBy({ left: dir * bestRow.clientWidth * 0.8, behavior: reduceMotion ? "auto" : "smooth" });
+  document.getElementById("best-prev").addEventListener("click", () => scrollBest(-1));
+  document.getElementById("best-next").addEventListener("click", () => scrollBest(1));
+  renderBest("all");
+
+  // ============ SHOP FILTERS ============
+  const DEFAULTS = { gender: "all", family: "all", type: "all", price: "any", sort: "featured" };
+  let filters = { ...DEFAULTS };
+  const shopGrid = document.getElementById("shop-grid");
+  const fFamily = document.getElementById("f-family");
+  const fType = document.getElementById("f-type");
+  const fPrice = document.getElementById("f-price");
+  const fSort = document.getElementById("f-sort");
+  const genderChips = document.querySelectorAll("[data-gender-chip]");
+
+  function renderShop() {
+    genderChips.forEach((c) => c.setAttribute("aria-pressed", String(c.dataset.genderChip === filters.gender)));
+    fFamily.value = filters.family;
+    fType.value = filters.type;
+    fPrice.value = filters.price;
+    fSort.value = filters.sort;
+
+    let list = products.filter((p) =>
+      (filters.gender === "all" || p.gender === filters.gender || (p.gender === "unisex" && filters.gender !== "unisex" && p.family)) &&
+      (filters.family === "all" || p.family === filters.family) &&
+      (filters.type === "all" || typeOf(p) === filters.type) &&
+      (filters.price === "any" || minPrice(p) < 2000)
+    );
+    if (filters.sort === "low") list = [...list].sort((a, b) => minPrice(a) - minPrice(b));
+    if (filters.sort === "high") list = [...list].sort((a, b) => minPrice(b) - minPrice(a));
+
+    const changed = ["gender", "family", "type", "price"].some((k) => filters[k] !== DEFAULTS[k]);
+    document.getElementById("clear-filters").hidden = !changed;
+    document.getElementById("results-count").textContent =
+      `Showing ${list.length} of ${products.length} products`;
+
+    shopGrid.innerHTML = list.length
+      ? list.map(productCard).join("")
+      : `<div class="empty" style="grid-column:1/-1"><p>No products match these filters.</p><button type="button" class="btn btn-outline" data-clear>Clear filters</button></div>`;
+  }
+
+  function setFilters(changes) {
+    filters = { ...DEFAULTS, ...changes };
+    renderShop();
+  }
+
+  genderChips.forEach((c) => c.addEventListener("click", () => { filters.gender = c.dataset.genderChip; renderShop(); }));
+  fFamily.addEventListener("change", () => { filters.family = fFamily.value; renderShop(); });
+  fType.addEventListener("change", () => { filters.type = fType.value; renderShop(); });
+  fPrice.addEventListener("change", () => { filters.price = fPrice.value; renderShop(); });
+  fSort.addEventListener("change", () => { filters.sort = fSort.value; renderShop(); });
+  document.getElementById("clear-filters").addEventListener("click", () => setFilters({}));
+  renderShop();
+
+  // ============ CART ============
+  let cart = [];
+  try { cart = JSON.parse(localStorage.getItem("sn-cart")) || []; } catch (e) { cart = []; }
+  cart = cart.filter((i) => byId[i.id]);
+  const saveCart = () => { try { localStorage.setItem("sn-cart", JSON.stringify(cart)); } catch (e) { /* storage unavailable */ } };
+  const itemPrice = (item) => byId[item.id].variants[item.v][1];
+  const cartTotal = () => cart.reduce((sum, i) => sum + itemPrice(i) * i.qty, 0);
+
+  function addToCart(id, v, qty, picks) {
+    const key = id + "|" + v + "|" + (picks || []).join(",");
+    const found = cart.find((i) => i.key === key);
+    if (found) found.qty += qty;
+    else cart.push({ key, id, v, qty, picks: picks || [] });
+    saveCart();
+    renderCart();
+  }
+
+  function checkoutMessage() {
+    const lines = cart.map((item, n) => {
+      const p = byId[item.id];
+      let line = `${n + 1}. ${p.name} (${p.variants[item.v][0]}) x${item.qty} = ${money(itemPrice(item) * item.qty)}`;
+      if (item.picks.length) line += "\n   Scents: " + item.picks.map((id) => byId[id].name).join(", ");
+      return line;
+    });
+    return "Assalam o Alaikum! I'd like to order:\n" + lines.join("\n") +
+      "\n\nTotal: " + money(cartTotal()) + "\n\nName:\nAddress:\nCity:";
+  }
+
+  function renderCart() {
+    const count = cart.reduce((n, i) => n + i.qty, 0);
+    const badge = document.getElementById("cart-count");
+    badge.textContent = count;
+    badge.hidden = count === 0;
+    document.getElementById("cart-title").textContent = `Your cart (${count})`;
+    const body = document.getElementById("cart-body");
+    const foot = document.getElementById("cart-foot");
+
+    if (!cart.length) {
+      body.innerHTML = `<div class="cart-empty"><p>Your cart is empty.</p><button type="button" class="btn btn-dark" data-close>Continue shopping</button></div>`;
+      foot.hidden = true;
+      return;
+    }
+    body.innerHTML = `<ul class="cart-list">${cart.map((item, idx) => {
+      const p = byId[item.id];
+      const picks = item.picks.length ? `<p class="ci-meta">${item.picks.map((id) => escapeHtml(byId[id].name)).join(", ")}</p>` : "";
+      return `
+        <li class="cart-item">
+          <div class="ci-img">${photo(p)}</div>
+          <div class="ci-info">
+            <p class="ci-name">${escapeHtml(p.name)}</p>
+            <p class="ci-meta">${p.variants[item.v][0]}</p>
+            ${picks}
+            <div class="ci-row">
+              <div class="qty qty-sm">
+                <button type="button" data-dec="${idx}" aria-label="Decrease quantity">&minus;</button>
+                <span>${item.qty}</span>
+                <button type="button" data-inc="${idx}" aria-label="Increase quantity">+</button>
+              </div>
+              <p class="ci-price">${money(itemPrice(item) * item.qty)}</p>
+            </div>
+            <button type="button" class="link-btn" data-remove="${idx}">Remove</button>
+          </div>
+        </li>`;
+    }).join("")}</ul>`;
+    foot.hidden = false;
+    document.getElementById("cart-subtotal").textContent = money(cartTotal());
+    document.getElementById("checkout").href = whatsappLink(checkoutMessage());
+  }
+
+  // ============ QUICK SHOP ============
+  const qs = { id: null, v: 0, qty: 1, picks: [] };
+
+  function renderQuickShop() {
+    const p = byId[qs.id];
+    const v = p.variants[qs.v];
+    document.getElementById("qs-media").innerHTML = photo(p, false);
+    document.getElementById("qs-range").textContent = p.range;
+    document.getElementById("qs-name").textContent = p.name;
+    document.getElementById("qs-notes").textContent = p.notes;
+    document.getElementById("qs-price").innerHTML = v[2]
+      ? `<span class="sale">${money(v[1])}</span><s>${money(v[2])}</s>` : `<span>${money(v[1])}</span>`;
+    document.getElementById("qs-variants").innerHTML = p.variants.map((x, i) =>
+      `<button type="button" class="variant" data-variant="${i}" aria-pressed="${i === qs.v}">${x[0]}</button>`).join("");
+    document.getElementById("qs-qty").textContent = qs.qty;
+
+    const pickWrap = document.getElementById("qs-pick-wrap");
+    pickWrap.hidden = !p.pick;
+    if (p.pick) {
+      const full = qs.picks.length >= p.pick;
+      document.getElementById("qs-pick-count").textContent = `${qs.picks.length} of ${p.pick} chosen`;
+      document.getElementById("qs-pick").innerHTML = perfumes.map((x) => {
+        const on = qs.picks.includes(x.id);
+        return `<label><input type="checkbox" data-pick="${x.id}"${on ? " checked" : ""}${!on && full ? " disabled" : ""}><span>${escapeHtml(x.name)}</span></label>`;
+      }).join("");
+    }
+  }
+
+  function openQuickShop(id) {
+    closeAllDialogs();
+    Object.assign(qs, { id, v: 0, qty: 1, picks: [] });
+    document.getElementById("qs-error").textContent = "";
+    renderQuickShop();
+    document.getElementById("quick-shop").showModal();
+  }
+
+  document.getElementById("qs-dec").addEventListener("click", () => { qs.qty = Math.max(1, qs.qty - 1); renderQuickShop(); });
+  document.getElementById("qs-inc").addEventListener("click", () => { qs.qty = Math.min(10, qs.qty + 1); renderQuickShop(); });
+  document.getElementById("qs-pick").addEventListener("change", (e) => {
+    const id = e.target.dataset.pick;
+    if (!id) return;
+    qs.picks = e.target.checked ? [...qs.picks, id] : qs.picks.filter((x) => x !== id);
+    document.getElementById("qs-error").textContent = "";
+    renderQuickShop();
+    const again = document.querySelector(`[data-pick="${id}"]`);
+    if (again) again.focus();
+  });
+  document.getElementById("qs-add").addEventListener("click", () => {
+    const p = byId[qs.id];
+    if (p.pick && qs.picks.length !== p.pick) {
+      document.getElementById("qs-error").textContent = `Choose ${p.pick - qs.picks.length} more ${p.pick - qs.picks.length === 1 ? "scent" : "scents"} for your sample set.`;
+      return;
+    }
+    addToCart(qs.id, qs.v, qs.qty, p.pick ? qs.picks : null);
+    openDialog("cart");
+  });
+
+  // ============ SEARCH ============
+  const searchInput = document.getElementById("search-input");
+  const searchResults = document.getElementById("search-results");
+  function renderSearch() {
+    const q = searchInput.value.trim().toLowerCase();
+    if (!q) {
+      searchResults.innerHTML = `<p class="s-label">Popular searches</p>
+        <div class="s-chips">${["Oud", "Rose", "Vanilla", "Fresh", "Attar", "Gift"].map((w) =>
+          `<button type="button" data-q="${w}">${w}</button>`).join("")}</div>`;
+      return;
+    }
+    const found = products.filter((p) =>
+      [p.name, p.notes, p.range, p.family || "", p.gender].join(" ").toLowerCase().includes(q));
+    if (!found.length) {
+      searchResults.innerHTML = `<p class="s-empty">Nothing matches "${escapeHtml(searchInput.value.trim())}". Try a note like rose, oud or vanilla.</p>`;
+      return;
+    }
+    searchResults.innerHTML = `<p class="s-label">${found.length} ${found.length === 1 ? "result" : "results"}</p>
+      <ul class="s-list">${found.map((p) => `
+        <li><button type="button" class="s-item" data-quick="${p.id}">
+          <span class="s-img">${photo(p)}</span>
+          <span><span class="s-name">${escapeHtml(p.name)}</span><span class="p-notes">${escapeHtml(p.notes)}</span><span class="p-price">${priceHTML(p)}</span></span>
+        </button></li>`).join("")}</ul>`;
+  }
+  searchInput.addEventListener("input", renderSearch);
+
+  // ============ SCENT QUIZ ============
+  const QUIZ = [
+    { key: "gender", q: "Who is the perfume for?", options: [["men", "For him"], ["women", "For her"], ["any", "For anyone"]] },
+    { key: "when", q: "When will it be worn most?", options: [["daily", "Every day"], ["office", "At work"], ["evening", "Evenings and events"]] },
+    { key: "family", q: "Which kind of smell do you like most?", options: [["fresh", "Fresh and clean"], ["sweet", "Sweet and cosy"], ["woody", "Woody and warm"], ["floral", "Floral"], ["oud", "Oud and spicy"]] }
+  ];
+  const quiz = { step: 0, answers: {} };
+  const quizBody = document.getElementById("quiz-body");
+
+  function quizMatches() {
+    const a = quiz.answers;
+    return products
+      .filter((p) => p.family && (a.gender === "any" || p.gender === a.gender || p.gender === "unisex"))
+      .map((p) => ({ p, score: (p.family === a.family ? 3 : 0) + (p.when.includes(a.when) ? 1 : 0) + (p.best ? 0.5 : 0) }))
+      .sort((x, y) => y.score - x.score)
+      .slice(0, 3)
+      .map((x) => x.p);
+  }
+
+  function renderQuiz() {
+    if (quiz.step < QUIZ.length) {
+      const item = QUIZ[quiz.step];
+      quizBody.innerHTML = `
+        <p class="quiz-step">Question ${quiz.step + 1} of ${QUIZ.length}</p>
+        <div class="quiz-progress"><span style="width:${((quiz.step + 1) / QUIZ.length) * 100}%"></span></div>
+        <h2 id="quiz-title">${item.q}</h2>
+        <div class="quiz-options">${item.options.map(([value, text]) =>
+          `<button type="button" data-answer="${value}">${text}</button>`).join("")}</div>
+        <div class="quiz-foot">${quiz.step > 0 ? `<button type="button" class="link-btn" data-quiz-back>Back</button>` : "<span></span>"}</div>`;
+    } else {
+      quizBody.innerHTML = `
+        <p class="quiz-step">Your matches</p>
+        <h2 id="quiz-title">We think you'll love these</h2>
+        <ul class="matches">${quizMatches().map((p) => `
+          <li class="match">
+            <span class="s-img">${photo(p)}</span>
+            <div><h3>${escapeHtml(p.name)}</h3><p>${escapeHtml(p.notes)}</p><p class="p-price">${priceHTML(p)}</p></div>
+            <button type="button" class="btn btn-dark" data-quick="${p.id}">View</button>
+          </li>`).join("")}</ul>
+        <div class="quiz-foot">
+          <button type="button" class="link-btn" data-quiz-restart>Start again</button>
+          <button type="button" class="btn btn-outline" data-quick="sample-set">Try them in a sample set</button>
+        </div>`;
+    }
+    const first = quizBody.querySelector("button");
+    if (first && document.getElementById("quiz").open) first.focus();
+  }
+
+  // ============ DIALOGS ============
+  function closeAllDialogs() {
+    document.querySelectorAll("dialog[open]").forEach((d) => d.close());
+  }
+
+  function openDialog(id) {
+    closeAllDialogs();
+    if (id === "search") { searchInput.value = ""; renderSearch(); }
+    if (id === "quiz") { quiz.step = 0; quiz.answers = {}; renderQuiz(); }
+    document.getElementById(id).showModal();
+  }
+
+  document.querySelectorAll("dialog").forEach((d) => {
+    d.addEventListener("click", (e) => { if (e.target === d) d.close(); });
+  });
+
+  // ============ CLICKS ============
+  document.addEventListener("click", (e) => {
+    const t = e.target;
+    let el;
+
+    if ((el = t.closest("[data-open]"))) { e.preventDefault(); openDialog(el.dataset.open); return; }
+    if ((el = t.closest("[data-close]"))) { el.closest("dialog").close(); return; }
+    if ((el = t.closest("[data-quick]"))) { e.preventDefault(); openQuickShop(el.dataset.quick); return; }
+
+    if ((el = t.closest("[data-shop]"))) {
+      const changes = {};
+      ["gender", "family", "type", "price"].forEach((k) => { if (el.dataset[k]) changes[k] = el.dataset[k]; });
+      setFilters(changes);
+      const menu = el.closest("dialog");
+      if (menu) menu.close();
+      return;
+    }
+    if ((el = t.closest("[data-clear]"))) { setFilters({}); return; }
+
+    if ((el = t.closest("[data-variant]"))) { qs.v = Number(el.dataset.variant); renderQuickShop(); return; }
+
+    if ((el = t.closest("[data-inc]"))) { const i = cart[Number(el.dataset.inc)]; i.qty = Math.min(10, i.qty + 1); saveCart(); renderCart(); return; }
+    if ((el = t.closest("[data-dec]"))) {
+      const idx = Number(el.dataset.dec);
+      cart[idx].qty -= 1;
+      if (cart[idx].qty < 1) cart.splice(idx, 1);
+      saveCart(); renderCart(); return;
+    }
+    if ((el = t.closest("[data-remove]"))) { cart.splice(Number(el.dataset.remove), 1); saveCart(); renderCart(); return; }
+
+    if ((el = t.closest("[data-q]"))) { searchInput.value = el.dataset.q; renderSearch(); searchInput.focus(); return; }
+
+    if ((el = t.closest("[data-answer]"))) {
+      quiz.answers[QUIZ[quiz.step].key] = el.dataset.answer;
+      quiz.step += 1;
+      renderQuiz();
+      return;
+    }
+    if (t.closest("[data-quiz-back]")) { quiz.step = Math.max(0, quiz.step - 1); renderQuiz(); return; }
+    if (t.closest("[data-quiz-restart]")) { quiz.step = 0; quiz.answers = {}; renderQuiz(); return; }
+
+    if ((el = t.closest("#menu a"))) { document.getElementById("menu").close(); }
+  });
+
+  // About: read more
+  const aboutToggle = document.getElementById("about-toggle");
+  aboutToggle.addEventListener("click", () => {
+    const more = document.getElementById("about-more");
+    more.hidden = !more.hidden;
+    aboutToggle.setAttribute("aria-expanded", String(!more.hidden));
+    aboutToggle.textContent = more.hidden ? "Read more" : "Show less";
+  });
+
+  // ============ ANNOUNCEMENTS ============
+  const messages = [
+    "New winter scents are here",
+    "Try any 5 perfumes with a sample set for Rs. 1,200",
+    "Add to cart and order on WhatsApp in one message"
+  ];
+  let msgIndex = 0;
+  let msgPaused = reduceMotion;
+  const announceText = document.getElementById("announce-text");
+  const announcePause = document.getElementById("announce-pause");
+  function setPauseButton() {
+    announcePause.setAttribute("aria-pressed", String(msgPaused));
+    announcePause.setAttribute("aria-label", msgPaused ? "Play announcements" : "Pause announcements");
+    announcePause.innerHTML = msgPaused
+      ? `<svg viewBox="0 0 24 24" class="icon"><path d="M8 5l11 7-11 7z"/></svg>`
+      : `<svg viewBox="0 0 24 24" class="icon"><path d="M9 6v12M15 6v12"/></svg>`;
+  }
+  announcePause.addEventListener("click", () => { msgPaused = !msgPaused; setPauseButton(); });
+  setPauseButton();
+  setInterval(() => {
+    if (msgPaused || document.hidden) return;
+    msgIndex = (msgIndex + 1) % messages.length;
+    announceText.textContent = messages[msgIndex];
+  }, 4500);
+
+  // ============ BANNER SLIDER ============
+  const track = document.getElementById("slides");
+  const slides = Array.from(track.children);
+  const dotsBox = document.getElementById("dots");
+  let current = 0;
+  dotsBox.innerHTML = slides.map((_, i) => `<button type="button" aria-label="Go to slide ${i + 1}"></button>`).join("");
+  const dotButtons = Array.from(dotsBox.children);
+
+  function updateDots() {
+    const fg = getComputedStyle(slides[current]).getPropertyValue("--slide-fg").trim().toUpperCase();
+    const light = fg !== "#1C1714";
+    dotsBox.style.setProperty("--dot", light ? "rgba(255,255,255,0.4)" : "rgba(0,0,0,0.22)");
+    dotsBox.style.setProperty("--dot-on", light ? "#FFFFFF" : "#1C1714");
+    dotButtons.forEach((d, i) => d.setAttribute("aria-current", String(i === current)));
+  }
+  function goTo(i) {
+    current = (i + slides.length) % slides.length;
+    track.scrollTo({ left: current * track.clientWidth, behavior: reduceMotion ? "auto" : "smooth" });
+    updateDots();
+  }
+  document.getElementById("hero-prev").addEventListener("click", () => goTo(current - 1));
+  document.getElementById("hero-next").addEventListener("click", () => goTo(current + 1));
+  dotButtons.forEach((d, i) => d.addEventListener("click", () => goTo(i)));
+  track.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") { e.preventDefault(); goTo(current - 1); }
+    if (e.key === "ArrowRight") { e.preventDefault(); goTo(current + 1); }
+  });
+  let scrollTimer;
+  track.addEventListener("scroll", () => {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => {
+      const i = Math.round(track.scrollLeft / track.clientWidth);
+      if (i !== current) { current = i; updateDots(); }
+    }, 80);
+  }, { passive: true });
+  let heroPaused = false;
+  const hero = document.querySelector(".hero");
+  hero.addEventListener("pointerenter", () => { heroPaused = true; });
+  hero.addEventListener("pointerleave", () => { heroPaused = false; });
+  hero.addEventListener("focusin", () => { heroPaused = true; });
+  hero.addEventListener("focusout", () => { heroPaused = false; });
+  if (!reduceMotion) {
+    setInterval(() => {
+      if (!heroPaused && !document.hidden && !document.querySelector("dialog[open]")) goTo(current + 1);
+    }, 6000);
+  }
+
+  // ============ START ============
+  document.getElementById("footer-whatsapp").href = whatsappLink("Assalam o Alaikum! I have a question about your perfumes.");
+  document.getElementById("updates-link").href = whatsappLink("Assalam o Alaikum! Please add me to your list for new perfumes and offers.");
+  document.getElementById("directions-link").href = whatsappLink("Assalam o Alaikum! Can you send me directions to your store?");
+  updateDots();
+  renderCart();
+</script>
+</body>
+</html>
